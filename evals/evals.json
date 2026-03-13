@@ -1,0 +1,23 @@
+{
+  "skill_name": "gads-landing-page-analyzer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to analyze a landing page for Google Ads. The page is primarily about access control systems in Linköping. SafeTeam presents itself as a brand-independent supplier of access control systems and mentions the brands Aptus, ASSA, Axema Vaka, Vanderbilt, RCO and Salto. Under 'Add-ons for access control systems' the page highlights intercom systems, laundry room booking, digital locks, code locks and Passage Online (administration service). The page explicitly targets multiple industries: property companies, housing cooperatives, retail, construction, industry, offices, healthcare and schools. The CTA is 'Get a quote' – relatively generic. The team operates from a regional office in Mjärdevi, Linköping and serves all of Östergötland including Norrköping, Motala, Jönköping and Örebro. I have no supplementary marketing context and no existing keywords. I don't want SERP enrichment.",
+      "expected_output": "A Markdown file with SafeTeam Linköping analysis: 3 target segments (HOA, property managers, businesses), generic CTA, geographic scope Östergötland, 8-10 keyword clusters including brand, access control HOA, access control business, intercom, digital locks, laundry booking, negative keywords. No SERP section.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Analyze this page for Google Ads advertising. The page (spiris.se/ekonomiplattform/bokforing-fakturering) markets Spiris accounting software – a cloud-based financial platform. The page highlights automatic bookkeeping, smart invoicing, receipt management via app, bank integration, payroll, tax filing and annual reports. Three pricing tiers: Bookkeeping (199 SEK/month), Bookkeeping & Invoicing (299 SEK/month) and Bookkeeping, Invoicing & Payroll (569 SEK/month). New businesses get half price. The CTA is 'Try for free' with secondary CTA 'Compare and see pricing'. The page mentions sole proprietorships, limited companies and associations (associations are directed to a separate page). Competitors Bokio and Fortnox are mentioned in FAQ. No geographic limitation. FAQ explains that Spiris was previously called Visma eEkonomi. No extra context, no existing keywords, no SERP enrichment.",
+      "expected_output": "A Markdown file with Spiris analysis: 3 target segments (sole proprietors, startups, employers), specific CTA, national geography, clusters for brand, accounting software, startup, price/comparison, invoicing software, payroll software, informational cluster. Negative keywords include accounting consultant, education, jobs.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Can you come up with keywords and ad groups based on this page? Grown.se presents Grown as a 'strategic transformation partner' – explicitly not an agency, not campaigns, not inbound coaching. Main message: 73% of B2B buyers have made their choice before talking to sales. Three programs: Revenue Accelerator (8-10 weeks), Alignment Day (one-day workshop), Strategic advisory (ongoing sparring partner). Suits B2B companies with 30-500 employees. Founder Magnus Brynestam is highlighted in the CTA. 450+ customer logos. CTA 'Book a call' – 30 min with Magnus. HubSpot partner. Offices in Karlskrona and Stockholm, no geographic limitation. The term 'inbound marketing' appears in the title tag but not in the body text. No extra context, no existing keywords, no SERP enrichment.",
+      "expected_output": "A Markdown file with Grown analysis: 2 target segments (marketing directors, CEO/CRO), specific CTA, national geography, clusters for brand, inbound/content marketing, sales-marketing alignment, B2B strategy, HubSpot, buyer journey/behavior, pipeline/sales cycles, workshop/speaking. Negative keywords include B2C, e-commerce, campaign, web agency.",
+      "files": []
+    }
+  ]
+}
