@@ -35,7 +35,7 @@ Terms to exclude – those that resemble the offer but mean something else, or s
 
 ## Search Intent
 
-Mark every search query (except brand searches) with its probable search intent, written out in full:
+Mark every search query (except brand searches) with its probable search intent, written out in full and always in English (these values are parsed by downstream tools):
 
 - **navigational** – the searcher wants a specific website or page
 - **informational** – the searcher wants to learn or understand something
@@ -72,7 +72,7 @@ Group search queries that meet **all three** criteria:
 - Negative keywords are not clustered – they are applied at campaign or ad group level.
 
 ### Cluster metadata
-Each cluster must include:
+Each cluster must include these three fields, using the exact English labels shown here (they are parsed by downstream tools):
 - **Target segment:** which segment(s) the cluster addresses
 - **Offer:** what is being offered
-- **Search intent:** the dominant search intent for the cluster
+- **Search intent:** the dominant search intent for the cluster (always one of: *navigational*, *informational*, *commercial investigation*, *transactional* – in English)

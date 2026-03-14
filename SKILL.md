@@ -9,8 +9,9 @@ description: >
   "Google Ads analysis", "which keywords fit", "GAds", "adwords", or any request to extract
   search queries or ad group structure from a URL, screenshot, or page content.
   Input can be a URL to visit, a screenshot to analyze, or a markdown document with the page content.
-  Output is a structured Markdown file with target segments, offers, key terms, clustered search
-  queries, and negative keywords – ready to transfer into Google Ads.
+  Output is a structured Markdown file with target segments, offers, clustered search
+  queries, negative keywords, and (when SERP enrichment is used) a keyword gap analysis – ready
+  to transfer into Google Ads.
 ---
 
 # Google Ads Landing Page Analyzer
@@ -57,11 +58,11 @@ Check whether the marketing context (point 1) contains a list of keywords the la
 
 **3. SERP enrichment**
 
-Ask the user: *"Would you like me to search Google to find supplementary keywords after the clustering? If you have the Claude in Chrome extension installed, start Chrome now so I can use it to scrape related searches and 'People Also Ask' directly from Google. Otherwise, I'll use regular web search."*
+Ask the user: *"Would you like me to search Google to find supplementary keywords after the clustering? If you have the Claude in Chrome extension installed, start Chrome now so I can use it to scrape Google's search suggestions, follow-up questions, and organic results directly. Otherwise, I'll use regular web search."*
 
 **4. CAPTCHA test (only if the user chose Chrome)**
 
-If the user opted in to Chrome for SERP enrichment, verify that Google is not blocking automated searches before proceeding. Navigate to google.se and search for "test". If the search results load normally, Chrome is ready – continue. If Google presents a CAPTCHA, ask the user with two options:
+If the user opted in to Chrome for SERP enrichment, verify that Google is not blocking automated searches before proceeding. Navigate to the appropriate Google domain for the user's language (e.g. google.se for Swedish, google.de for German, google.com for English) and search for "test". If the search results load normally, Chrome is ready – continue. If Google presents a CAPTCHA, ask the user with two options:
 
 - *"Have you solved the CAPTCHA?"* – The user is expected to solve the CAPTCHA in the browser before clicking this option. No further test search is needed; proceed with Chrome.
 - *"Continue without Chrome"* – Fall back to regular web search for SERP enrichment.
@@ -144,13 +145,29 @@ Read `references/search-query-generation.md` (the Clustering section) for the th
 
 Pick one representative query per cluster (excluding the brand cluster) and search Google. Analyze results to identify supplementary keywords, new clusters, or negative keywords not apparent from the landing page alone.
 
+**What to extract from the SERP:**
+
+For each search, collect keywords and phrases from these sources:
+
+1. **Related searches / suggested searches** – the block of related queries Google shows (typically at the bottom of the page). The label varies by language – e.g. "Relaterade sökningar" in Swedish, "Related searches" in English, "Verwandte Suchanfragen" in German. Look for the actual UI element regardless of its label text. If unsure which language the SERP uses, check the footer links (they reveal the Google country domain).
+2. **"People Also Ask" / follow-up questions** – the expandable question box Google often shows mid-page. Again, the label is localized (e.g. "Fler frågor du kan ställa", "People also ask", "Nutzer fragen auch").
+3. **Autocomplete suggestions** – type the query and note what Google suggests.
+4. **Organic results (top 10)** – read the title tag and meta description of each organic result on the first page. Extract terms and phrasings that are relevant to the offer but missing from the current keyword list.
+
 **Method – choose based on available tools:**
 
-1. **If Claude in Chrome is available** (the user started Chrome in Phase 1): Navigate to google.se, search for the representative query, and scrape: "Related searches" at the bottom, "People Also Ask", Google autocomplete suggestions, and titles/headings of the top 10 organic results.
+1. **If Claude in Chrome is available** (the user started Chrome in Phase 1): Navigate to the appropriate Google domain, search for the representative query, and scrape all four sources listed above.
 
-2. **If only web_search is available** (no browser): Search for the representative query and analyze titles and snippets from the returned results. Identify terms and phrasings that appear in competitor titles but are missing from the keyword list.
+2. **If only web_search is available** (no browser): Search for the representative query and analyze titles and snippets from the returned results. Identify terms and phrasings that appear in competitor titles but are missing from the keyword list. Note that autocomplete and "People Also Ask" are typically not available through web_search – focus on organic titles/descriptions and any related searches that appear.
 
-Present SERP enrichment findings in the conversation – they are **not** included in the output file. If the findings lead to changes in the clusters or negative keywords, those changes are reflected in the relevant output sections.
+**How to use the findings:**
+
+- Keywords that fit an existing cluster are added to that cluster.
+- Keywords that suggest a new coherent topic become a new cluster.
+- Irrelevant terms that might trigger the ads are added to negative keywords.
+- **Keyword gap:** Keywords discovered through SERP enrichment that do *not* appear on the landing page (neither verbatim nor as a close synonym) are collected in a separate "Keyword gap" section in the output file. This helps the advertiser see which relevant search terms competitors rank for but the landing page does not address. A keyword can appear both in a cluster and in the keyword gap – the cluster shows where to use it, the gap highlights that the page lacks it.
+
+Present SERP enrichment details (which SERP features were found, raw data) in the conversation. The **resulting changes** – new/expanded clusters, new negative keywords, and the keyword gap list – go into the output file.
 
 ## Output Format
 
@@ -171,6 +188,8 @@ Use proper Unicode characters throughout the output:
 ## Language
 
 Respond in the same language the user used when invoking the skill.
+
+**Important exception for the output file:** All predetermined section headings, key–value labels, and search intent values in the Markdown file must be written exactly in English as specified in `references/output-format.md` – even when the rest of the document is in another language. This is because downstream tools in the toolchain parse the file by these exact English strings. Only the document title (`# …`), cluster names (`### …`), and the **values** after labels are written in the document's language.
 
 ## Reference Examples
 

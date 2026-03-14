@@ -15,7 +15,7 @@ Given a landing page (URL, screenshot, or page content as text), the skill answe
 7. **Clustering** -- grouping queries into ad-group-ready clusters
 8. **SERP enrichment** (optional) -- supplementing clusters with data from Google search results
 
-The output is a Markdown file with clustered search queries, each annotated with target segment, offer, and search intent -- ready to transfer into Google Ads.
+The output is a Markdown file with clustered search queries, each annotated with target segment, offer, and search intent -- plus negative keywords and (when SERP enrichment is enabled) a keyword gap analysis showing relevant terms competitors rank for that the page doesn't address. Ready to transfer into Google Ads.
 
 ## When it triggers
 
