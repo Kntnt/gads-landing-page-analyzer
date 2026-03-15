@@ -15,7 +15,7 @@ The page (spiris.se/ekonomiplattform/bokforing-fakturering) markets Spiris accou
 
 **Page:** spiris.se/ekonomiplattform/bokforing-fakturering
 **Sender:** Spiris (part of Visma)
-**Geography:** no limitation (national)
+**Geography:**
 **CTA:** Specific – "Try for free"
 
 ## Target segments and offers

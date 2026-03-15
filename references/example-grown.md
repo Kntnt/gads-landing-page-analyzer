@@ -15,7 +15,7 @@ The page (grown.se) presents Grown as a "strategic transformation partner" – e
 
 **Page:** grown.se
 **Sender:** Grown (Magnus Brynestam)
-**Geography:** no limitation (national, offices in Karlskrona and Stockholm)
+**Geography:**
 **CTA:** Specific – "Book a conversation" (30 min with Magnus Brynestam, no commitments)
 
 ## Target segments and offers

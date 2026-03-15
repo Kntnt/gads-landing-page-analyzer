@@ -38,7 +38,7 @@ The output file contains these sections (the "Keyword gap" section is conditiona
 
 **Page:** [URL if available, otherwise identify the page as precisely as possible – e.g. domain + breadcrumb path, or company name + page title]
 **Sender:** [sender]
-**Geography:** [geographic scope or "no limitation (national)"]
+**Geography:** [target locations from marketing context, OR geographic scope from the page, OR leave empty if none]
 **CTA:** [Specific/Generic] – "[actual CTA text]"
 
 ## Target segments and offers

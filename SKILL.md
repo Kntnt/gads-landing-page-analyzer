@@ -103,9 +103,15 @@ Identify the specific entity presenting the offer – not necessarily the parent
 
 ### Question 3: Geographic Scope
 
-**"Does the page have a geographic scope narrower than the entire country?"**
+**"What is the geographic scope for advertising this page?"**
 
-Answer yes if the page targets a specific city, region, county, or similar. State the geographic area. Answer no if the only geographic boundary is national (e.g. Sweden). This information is used for geographic targeting in Google Ads.
+Determine the geographic scope in the following priority order:
+
+1. **Marketing context first.** Check whether the marketing context gathered in Phase 1 (point 1) contains Google Ads target locations, radius targets, or other geographic targeting information. If it does, use that targeting as the Geography value – copy it verbatim, exactly as it appears in the context.
+2. **Page content second.** If the marketing context does not contain geographic targeting, assess whether the page itself targets a specific city, region, county, or similar area narrower than the entire country. If it does, state the geographic area.
+3. **Default.** If neither the marketing context nor the page indicates a geographic scope, leave the Geography field empty.
+
+This information is used for geographic targeting in Google Ads.
 
 ### Question 4: CTA Character
 
@@ -173,7 +179,7 @@ Present SERP enrichment details (which SERP features were found, raw data) in th
 
 Read `references/output-format.md` for the complete formatting specification and document structure template.
 
-The result is a Markdown file saved to the workspace folder. The file should be concise and scannable, designed for easy transfer into Google Ads.
+The result is a Markdown file saved to the workspace folder with the filename `gads-landing-page-analysis.md` (unless a different name is specified in the marketing context or by the user). The file should be concise and scannable, designed for easy transfer into Google Ads.
 
 ## Typography
 

@@ -8,7 +8,7 @@ Given a landing page (URL, screenshot, or page content as text), the skill answe
 
 1. **Target segments and offer** -- who the page addresses and what it sells
 2. **Sender** -- the specific brand or entity behind the page
-3. **Geographic scope** -- whether targeting is narrower than national
+3. **Geographic scope** -- target locations from marketing context, page content, or omitted if none
 4. **CTA character** -- whether the call-to-action is specific or generic
 5. **Key terms** -- words and phrases on the page relevant for ads
 6. **Search queries** -- what the target segments would type in Google
